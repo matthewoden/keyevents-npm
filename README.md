@@ -1,21 +1,37 @@
 #keyevents
 A simple shortcut mixin for react.js. Useful for single button presses.
 
-This mixin runs as a function, that requests a listener object. The object's key is the
+##Installation
+```bash
+$ npm install keyevents
 
-a listener object might look something like this:
-````
- {
-  a:function(){
-      console.log('you pressed a!');
-    }
- }
-````
-Currently, everything runs on mousedown, so you'll probably want to include a timeout,
+```
+##Usage
+This mixin exposes as itself as a function which looks for a listener object. 
+
+###Example
+```
+var KeyEvents = require('keyevents');
 
 
-The keys included so far map to the following:
-````
+var ExampleComponent = React.createComponent({
+  mixins:[KeyEvents( {
+            a:function() {
+              console.log('you pressed a!');
+            },
+            backspace: function() {
+              console.log('back that space up!');
+            }  
+          })],
+...
+
+```
+
+The object's key is the human-readable version, the value is the keycode associated with it. Currently, everything runs on mousedown, so you'll probably want to include a timeout in your method to handle long presses.
+
+###Key Mapping
+The keys included so far map as the following:
+```
 {
   8 : 'backspace',
   9 : 'tab',
