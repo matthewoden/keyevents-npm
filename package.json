@@ -12,5 +12,13 @@
     "react"
   ],
   "author": "Matthew Oden Potter",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthewoden/keyevents-npm"
+  },
+  "bugs": {
+    "url": "https://github.com/matthewoden/keyevents-npm/issues"
+  },
+  "homepage": "https://github.com/matthewoden/keyevents-npm"
 }
