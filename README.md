@@ -1,6 +1,5 @@
-
-#Keyevents
-_A simple shortcut mixin for react.js. Useful for single button presses._
+#keyevents v1.0.1
+A simple shortcut mixin for react.js. Useful for single button presses.
 
 ##Installation
 ```bash
