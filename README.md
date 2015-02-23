@@ -11,7 +11,7 @@ $ npm install keyevents
 Usage
 -----
 
-This mixin exposes as itself as a function which looks for a listener object.
+This mixin maps an object's keys to keyboard keys (named as shown below). On keydown, it returns the method assigned.
 
 #### Example
 
@@ -24,12 +24,17 @@ var ExampleComponent = React.createComponent({
 
   componentKeyEvents:function(){
     return{
-       a:function() {
+      // You can assign functions directly:
+      a:function() {
         console.log('you pressed a!');
       },
+
       backspace: function() {
         console.log('back that space up!');
-      }
+      },
+
+      // ... or use component methods!
+      p: this.componentMethod(arguments)
     }
   }
 
@@ -38,7 +43,7 @@ var ExampleComponent = React.createComponent({
 
 ```
 
-The object's key is the human-readable version, the value is the keycode associated with it. Currently, everything runs on mousedown, so you'll probably want to include a timeout in your method to handle long presses.
+The object's key is the human-readable version of a an event.which keycode. Currently, everything runs on mousedown, so you'll probably want to include a timeout in your method to handle long presses.
 
 #### Key Mapping
 
