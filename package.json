@@ -1,6 +1,6 @@
 {
   "name": "keyevents",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A very basic key binding mixin for React.js",
   "main": "index.min.js",
   "scripts": {

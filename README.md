@@ -1,6 +1,6 @@
 KeyEvents v1.0.5
 =================
- A simple shortcut mixin for react.js. Useful for single button presses.
+A simple shortcut mixin for react.js. Useful for single button presses.
 
 Installation
 ------------
@@ -26,11 +26,11 @@ var ExampleComponent = React.createComponent({
     return{
       // You can assign functions directly:
       a:function() {
-        console.log('you pressed a!');
+        console.log('you pressed a!')
       },
 
       backspace: function() {
-        console.log('back that space up!');
+        console.log('back that space up!')
       },
 
       // ... or use component methods!
