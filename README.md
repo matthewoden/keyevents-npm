@@ -1,4 +1,4 @@
-KeyEvents v1.0.4
+KeyEvents v1.0.5
 =================
  A simple shortcut mixin for react.js. Useful for single button presses.
 
