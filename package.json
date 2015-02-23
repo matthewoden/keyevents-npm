@@ -1,7 +1,7 @@
 {
   "name": "keyevents",
   "version": "1.0.6",
-  "description": "A very basic key binding mixin for React.js",
+  "description": "A human readable event binding mixin for react.js",
   "main": "index.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,8 @@
   "keywords": [
     "Keypress",
     "reactjs",
-    "react"
+    "react",
+
   ],
   "author": "Matthew Oden Potter",
   "license": "MIT",
