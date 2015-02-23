@@ -1,4 +1,4 @@
-#keyevents v1.0.1
+#keyevents v1.0.2
 A simple shortcut mixin for react.js. Useful for single button presses.
 
 ##Installation
@@ -15,14 +15,20 @@ var KeyEvents = require('keyevents');
 
 
 var ExampleComponent = React.createComponent({
-  mixins:[KeyEvents( {
-            a:function() {
-              console.log('you pressed a!');
-            },
-            backspace: function() {
-              console.log('back that space up!');
-            }
-          })],
+  mixins:[keyEvents],
+
+  componentKeyEvents:function(){
+    return{
+       a:function() {
+        console.log('you pressed a!');
+      },
+      backspace: function() {
+        console.log('back that space up!');
+      }
+    }
+  }
+
+
 ...
 
 ```
