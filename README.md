@@ -1,16 +1,21 @@
-#KeyEvents v1.0.4
-A simple shortcut mixin for react.js. Useful for single button presses.
+KeyEvents v1.0.4
+=================
+ A simple shortcut mixin for react.js. Useful for single button presses.
 
-##Installation
+Installation
+------------
 ```bash
 $ npm install keyevents
 
 ```
-##Usage
+Usage
+-----
+
 This mixin exposes as itself as a function which looks for a listener object.
 
-###Example
-```
+#### Example
+
+``` js
 var KeyEvents = require('keyevents');
 
 
@@ -35,9 +40,11 @@ var ExampleComponent = React.createComponent({
 
 The object's key is the human-readable version, the value is the keycode associated with it. Currently, everything runs on mousedown, so you'll probably want to include a timeout in your method to handle long presses.
 
-###Key Mapping
+#### Key Mapping
+
+
 The keys included so far map as the following:
-```
+``` js
 {
   8 : 'backspace',
   9 : 'tab',
@@ -140,5 +147,8 @@ The keys included so far map as the following:
 }
 
 ```
-##Roadmap
+## Roadmap
 Handle shift + Key, and general key combinations.
+
+## License
+[MIT](https://github.com/matthewoden/keyevents-npm/blob/master/LICENSE)
