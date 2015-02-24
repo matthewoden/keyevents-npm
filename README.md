@@ -10,9 +10,9 @@ $ npm install keyevents
 Usage
 -----
 
-This mixin maps an object's keys to keyboard keys (named as shown below). On keydown, it returns the method assigned.
+This mixin maps an object's keys to keyboard keys (named as shown below). On keydown, it returns the method assigned. Listeners are created on componentWillMount and destroyed on componentWillUnmount.
 
-#### Example
+### Example
 
 ``` js
 var KeyEvents = require('keyevents');
@@ -42,10 +42,20 @@ var ExampleComponent = React.createComponent({
 
 ```
 
-The object's key is the human-readable version of a an event.which keycode. Currently, everything runs on mousedown, so you'll probably want to include a timeout in your method to handle long presses.
+The object's key is the human-readable version of a an event.which keycode. Currently, everything runs on keydown, so you'll probably want to include a timeout in your method to handle long presses.
 
-#### Key Mapping
+### Methods
 
+#### this.componentKeyEvents()
+This follows the react.js pattern of getInitialState and getDefaultProps, in that it should return an object of keys and events.
+
+#### this.destoryKeyEvents()
+this removes all keydown event listners
+
+#### this.createKeyEvents()
+this reinitializes keydown event listeners.
+
+### Key Mapping
 
 The keys included so far map as the following:
 ``` js
@@ -152,7 +162,8 @@ The keys included so far map as the following:
 
 ```
 ## Roadmap
-Handle shift + Key, and general key combinations.
+- Handle shift + Key, and general key combinations.
+- Create an options object for manual or automatic lifecycle component mounting
 
 ## License
 [MIT](https://github.com/matthewoden/keyevents-npm/blob/master/LICENSE)

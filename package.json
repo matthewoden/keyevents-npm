@@ -1,16 +1,22 @@
 {
   "name": "keyevents",
-  "version": "1.0.6",
-  "description": "A human readable event binding mixin for react.js",
+  "version": "1.0.8",
+  "description": "Human readable key event binding for react.js",
   "main": "index.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "Keypress",
+    "keypress",
+    "keydown",
+    "keyup"
+    "key down",
+    "key up",
+    "event listener",
+    "key events",
     "reactjs",
     "react",
-
+    "shortcuts"
   ],
   "author": "Matthew Oden Potter",
   "license": "MIT",

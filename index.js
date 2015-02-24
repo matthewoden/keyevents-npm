@@ -111,11 +111,19 @@ var KeyEvents = {
     }
   },
 
-  componentDidMount: function(){
+  destroyKeyEvents: function () {
+    document.removeEventListener('keydown', this.onKeyDown);
+  },
+
+  createKeyEvents: function () {
     document.addEventListener('keydown', this.onKeyDown);
   },
+
+  componentWillMount: function(){
+    this.createKeyEvents();
+  },
   componentWillUnmount: function(){
-    document.removeEventListener('keydown', this.onKeyDown);
+    this.destroyKeyEvents();
   }
 };
 
