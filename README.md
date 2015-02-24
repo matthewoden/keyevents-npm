@@ -1,4 +1,4 @@
-KeyEvents v1.0.5
+KeyEvents v1.0.9
 =================
 
 Installation
