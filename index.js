@@ -1,5 +1,5 @@
 'use strict';
-
+/*globals document*/
 var KEYS = {
   8 : 'backspace',
   9 : 'tab',
@@ -104,10 +104,17 @@ var KEYS = {
 var KeyEvents = {
 
   onKeyDown: function(event) {
+    if(typeof(this.componentKeyEvents()) !== 'object'){
+      console.error("componentKeyEvents must return an object.");
+      return;
+    }
     var keyPressed = KEYS[event.which];
     var keyListener = this.componentKeyEvents();
     if (keyListener[keyPressed]){
-      keyListener[keyPressed]();
+      if(typeof( keyListener[keyPressed] === 'function')){
+        keyListener[keyPressed]();
+        console.error("object values in componentKeyEvents() must be functions.", "Check the value of "+KEYS[event.which]+" in your object.");
+      }
     }
   },
 

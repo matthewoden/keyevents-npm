@@ -1,5 +1,5 @@
-KeyEvents v1.0.5
-=================
+KeyEvents
+=========
 
 Installation
 ------------
@@ -10,7 +10,7 @@ $ npm install keyevents
 Usage
 -----
 
-This mixin maps an object's keys to keyboard keys (named as shown below). On keydown, it returns the method assigned. Listeners are created on componentWillMount and destroyed on componentWillUnmount.
+This mixin maps an object's keys to keyboard keys (named as shown below). On keydown, it returns the method assigned. Listeners are handled via React lifecycle methods, so your KeyEvents are ready with your component, and clean up nicely.
 
 ### Example
 
@@ -19,7 +19,7 @@ var KeyEvents = require('keyevents');
 
 
 var ExampleComponent = React.createComponent({
-  mixins:[keyEvents],
+  mixins:[KeyEvents],
 
   componentKeyEvents:function(){
     return{
@@ -42,18 +42,18 @@ var ExampleComponent = React.createComponent({
 
 ```
 
-The object's key is the human-readable version of a an event.which keycode. Currently, everything runs on keydown, so you'll probably want to include a timeout in your method to handle long presses.
+The object's key is the human-readable version of an event.which keycode. Currently everything runs on keydown, so you'll probably want to include a timeout in your method to handle long presses.
 
 ### Methods
 
 #### this.componentKeyEvents()
-This follows the react.js pattern of getInitialState and getDefaultProps, in that it should return an object of keys and events.
+This follows the react.js pattern of getInitialState() and getDefaultProps(), in that it should return an object (shown above). Object keys should map to the values shown in the Key Mapping section below. Each key should have a method attatched to it.
 
-#### this.destoryKeyEvents()
-this removes all keydown event listners
+#### this.destroyKeyEvents()
+this removes all keydown event listners. Runs automatically on componentWillUnmount.
 
 #### this.createKeyEvents()
-this reinitializes keydown event listeners.
+this reinitializes keydown event listeners. Runs automatically on componentWillMount.
 
 ### Key Mapping
 
