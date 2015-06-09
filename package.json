@@ -1,6 +1,6 @@
 {
   "name": "keyevents",
-  "version": "1.0.10",
+  "version": "2.0.0",
   "description": "Human readable key event binding for react.js",
   "main": "index.min.js",
   "scripts": {
@@ -16,7 +16,8 @@
     "key events",
     "reactjs",
     "react",
-    "shortcuts"
+    "shortcuts",
+    "es6"
   ],
   "author": "Matthew Oden Potter",
   "license": "MIT",

@@ -7,22 +7,27 @@ Installation
 $ npm install keyevents
 
 ```
+
+Upgrading
+-----
+KeyEvents 2.0 is out! If you're not familiar with SemVer, that means you'll have to do some work to hop on the new version. See changes to componentKeyEvents below.
+
 Usage
 -----
 
-This mixin maps an object's keys to keyboard keys (named as shown below). On keydown, it returns the method assigned. Listeners are handled via React lifecycle methods, so your KeyEvents are ready with your component, and clean up nicely.
+This library takes the result of event.which, and returns the key in a human readable format (in english). It can be used as a mixin, or as a utility method (in case you're moving on to ES6 Classes). The main method, componentKeyEvents, runs on keydown, and returns the key assigned. The exact functionality is up to you.
 
-### Example
+### Example (using an object lookup)
 
 ``` js
 var KeyEvents = require('keyevents');
 
-
 var ExampleComponent = React.createComponent({
   mixins:[KeyEvents],
 
-  componentKeyEvents:function(){
-    return{
+  componentKeyEvents:function(keypressed){
+
+     var ExampleObject = {
       // You can assign functions directly:
       a:function() {
         console.log('you pressed a!')
@@ -35,6 +40,8 @@ var ExampleComponent = React.createComponent({
       // ... or use component methods!
       p: this.componentMethod(arguments)
     }
+
+    ExampleObject[keypressed]();
   }
 
 
@@ -42,18 +49,18 @@ var ExampleComponent = React.createComponent({
 
 ```
 
-The object's key is the human-readable version of an event.which keycode. Currently everything runs on keydown, so you'll probably want to include a timeout in your method to handle long presses.
+Again, how you handle it is up to you. You could run through your keybindings as with a switch. You can also define all your keybindings in an external file, then share them components.
 
 ### Methods
 
 #### this.componentKeyEvents()
-This follows the react.js pattern of getInitialState() and getDefaultProps(), in that it should return an object (shown above). Object keys should map to the values shown in the Key Mapping section below. Each key should have a method attatched to it.
+Your component's method for handling key presses. It's run on keyDown.
 
 #### this.destroyKeyEvents()
-this removes all keydown event listners. Runs automatically on componentWillUnmount.
+this removes all keydown event listners. When used as a mixin, it runs automatically on componentWillUnmount.
 
 #### this.createKeyEvents()
-this reinitializes keydown event listeners. Runs automatically on componentWillMount.
+this initializes keydown event listeners. When used as a mixin, it runs automatically on componentWillMount.
 
 ### Key Mapping
 
@@ -161,9 +168,13 @@ The keys included so far map as the following:
 }
 
 ```
+
+## Changelog
+- June 9th, 2015: Changed the functionality of ComponentKeyEvents to be an implementation detail.
+
 ## Roadmap
+- Add in support for custom key dictionaries
 - Handle shift + Key, and general key combinations.
-- Create an options object for manual or automatic lifecycle component mounting
 
 ## License
 [MIT](https://github.com/matthewoden/keyevents-npm/blob/master/LICENSE)
